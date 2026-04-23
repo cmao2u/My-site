@@ -1,0 +1,153 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { dimensionPairs, type MbtiScores } from "../../../lib/mbti/calc";
+import { mbtiTypeList, mbtiTypes } from "../../../data/mbti/types";
+
+const { type } = Astro.params;
+
+const safeType = String(type ?? "").toLowerCase();
+const info = mbtiTypes[safeType];
+const title = info?.title ?? "未知结果";
+const scoreEntries = ["E", "I", "S", "N", "T", "F", "J", "P"] as const;
+const scores = scoreEntries.reduce((acc, side) => {
+  const value = Number(Astro.url.searchParams.get(side));
+  acc[side] = Number.isFinite(value) ? value : 0;
+  return acc;
+}, {} as MbtiScores);
+const hasScores = scoreEntries.some((side) => scores[side] > 0);
+---
+
+<Layout title={title}>
+  <main class="mx-auto min-h-screen w-[min(1040px,92%)] py-16">
+    <a href="/mbti" class="text-sky-300 hover:underline">← 返回测试</a>
+
+    {
+      info ? (
+        <>
+          <section class="mt-8 border-b border-white/10 pb-8">
+            <p class="text-sm uppercase tracking-[0.3em] text-emerald-300">MBTI RESULT</p>
+            <h1 class="mt-4 text-5xl font-black">{info.title}</h1>
+            <p class="mt-4 text-xl font-semibold text-sky-200">{info.tagline}</p>
+            <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">{info.summary}</p>
+            <div class="mt-6 flex flex-wrap gap-2">
+              {info.keywords.map((keyword) => (
+                <span class="rounded-lg border border-white/10 bg-white/5 px-3 py-1 text-sm text-slate-200">
+                  {keyword}
+                </span>
+              ))}
+            </div>
+          </section>
+
+          {hasScores && (
+            <section class="mt-8">
+              <h2 class="text-2xl font-black">本次维度得分</h2>
+              <div class="mt-5 grid gap-4 md:grid-cols-2">
+                {dimensionPairs.map((pair) => {
+                  const leftScore = scores[pair.left];
+                  const rightScore = scores[pair.right];
+                  const total = Math.max(1, leftScore + rightScore);
+                  const leftPercent = Math.round((leftScore / total) * 100);
+                  const winner = leftScore > rightScore ? pair.left : pair.right;
+
+                  return (
+                    <article class="rounded-lg border border-white/10 bg-white/5 p-5">
+                      <div class="flex items-center justify-between gap-4">
+                        <h3 class="font-bold">{pair.label}</h3>
+                        <span class="text-sm text-emerald-300">{winner}</span>
+                      </div>
+                      <div class="mt-4 h-2 overflow-hidden rounded-full bg-emerald-300">
+                        <div class="h-full bg-sky-400" style={`width: ${leftPercent}%`} />
+                      </div>
+                      <div class="mt-3 flex justify-between text-sm text-slate-300">
+                        <span>
+                          {pair.left}: {leftScore}
+                        </span>
+                        <span>
+                          {pair.right}: {rightScore}
+                        </span>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
+          <section class="mt-10 grid gap-5 md:grid-cols-2">
+            <article class="rounded-lg border border-white/10 bg-white/5 p-6">
+              <h2 class="text-2xl font-black">优势</h2>
+              <ul class="mt-4 space-y-3 text-slate-300">
+                {info.strengths.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </article>
+
+            <article class="rounded-lg border border-white/10 bg-white/5 p-6">
+              <h2 class="text-2xl font-black">成长提醒</h2>
+              <ul class="mt-4 space-y-3 text-slate-300">
+                {info.growth.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </article>
+          </section>
+
+          <section class="mt-5 grid gap-5 md:grid-cols-3">
+            <article class="rounded-lg border border-white/10 bg-white/5 p-6">
+              <h2 class="text-xl font-black">工作风格</h2>
+              <p class="mt-4 leading-7 text-slate-300">{info.workStyle}</p>
+            </article>
+            <article class="rounded-lg border border-white/10 bg-white/5 p-6">
+              <h2 class="text-xl font-black">关系模式</h2>
+              <p class="mt-4 leading-7 text-slate-300">{info.relationships}</p>
+            </article>
+            <article class="rounded-lg border border-white/10 bg-white/5 p-6">
+              <h2 class="text-xl font-black">压力状态</h2>
+              <p class="mt-4 leading-7 text-slate-300">{info.stress}</p>
+            </article>
+          </section>
+
+          <section class="mt-5 rounded-lg border border-white/10 bg-white/5 p-6">
+            <h2 class="text-2xl font-black">给你的行动建议</h2>
+            <div class="mt-4 grid gap-3 md:grid-cols-3">
+              {info.suggestions.map((item) => (
+                <p class="rounded-lg border border-white/10 bg-slate-950/40 p-4 leading-7 text-slate-300">
+                  {item}
+                </p>
+              ))}
+            </div>
+          </section>
+        </>
+      ) : (
+        <section class="mt-8 rounded-lg border border-white/10 bg-white/5 p-8">
+          <p class="text-sm uppercase tracking-[0.3em] text-emerald-300">MBTI RESULT</p>
+          <h1 class="mt-4 text-4xl font-black">没有找到这个类型</h1>
+          <p class="mt-6 text-lg leading-8 text-slate-300">请回到测试页重新完成一次。</p>
+        </section>
+      )
+    }
+
+    <section class="mt-10">
+      <h2 class="text-2xl font-black">16 型速览</h2>
+      <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          mbtiTypeList.map((item) => (
+            <a
+              href={`/mbti/result/${item.type.toLowerCase()}`}
+              class:list={[
+                "rounded-lg border p-4 transition hover:-translate-y-1",
+                item.type.toLowerCase() === safeType
+                  ? "border-emerald-300 bg-emerald-300/10"
+                  : "border-white/10 bg-white/5 hover:bg-white/10",
+              ]}
+            >
+              <p class="font-black">{item.type}</p>
+              <p class="mt-1 text-sm text-slate-300">{item.name}</p>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MbtiQuiz from "../components/mbti/MbtiQuiz";
+---
+
+<Layout title="MBTI 测试">
+  <main class="mx-auto min-h-screen w-[min(960px,92%)] py-16">
+    <a href="/" class="text-sky-300 hover:underline">← 返回首页</a>
+
+    <p class="mt-8 text-sm font-semibold uppercase tracking-[0.28em] text-emerald-300">
+      28 QUESTIONS · 16 TYPES
+    </p>
+    <h1 class="mt-4 text-4xl font-black md:text-5xl">MBTI 偏好测试</h1>
+    <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
+      题目围绕 E/I、S/N、T/F、J/P 四组偏好原创设计，用来帮助你观察自己更自然的注意力、信息获取、决策和生活结构方式。
+      结果适合自我了解与聊天参考，不等同于官方 MBTI® 评估。
+    </p>
+
+    <section class="mt-8 grid gap-3 md:grid-cols-4">
+      <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+        <p class="text-sm font-bold text-sky-300">E / I</p>
+        <p class="mt-2 text-sm leading-6 text-slate-300">能量更多来自外部互动，还是内部反思。</p>
+      </div>
+      <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+        <p class="text-sm font-bold text-sky-300">S / N</p>
+        <p class="mt-2 text-sm leading-6 text-slate-300">更信任具体事实，还是抽象模式和可能性。</p>
+      </div>
+      <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+        <p class="text-sm font-bold text-sky-300">T / F</p>
+        <p class="mt-2 text-sm leading-6 text-slate-300">决策时更先看逻辑原则，还是价值和人。</p>
+      </div>
+      <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+        <p class="text-sm font-bold text-sky-300">J / P</p>
+        <p class="mt-2 text-sm leading-6 text-slate-300">更喜欢结构收束，还是开放探索。</p>
+      </div>
+    </section>
+
+    <div class="mt-10">
+      <MbtiQuiz client:load />
+    </div>
+  </main>
+</Layout>
