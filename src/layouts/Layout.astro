@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import FloatingMusicPlayer from "../components/FloatingMusicPlayer";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -14,8 +16,38 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <ClientRouter />
   </head>
   <body>
     <slot />
+    <FloatingMusicPlayer client:load transition:persist="music-player" />
+    <script is:inline>
+      (() => {
+        const track = () => {
+          const path = `${location.pathname}${location.search}`;
+          const now = Date.now();
+          const last = window.__siteTrackLast;
+
+          if (last && last.path === path && now - last.time < 1000) {
+            return;
+          }
+
+          window.__siteTrackLast = { path, time: now };
+          fetch("/api/track", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ path }),
+          }).catch(() => {});
+        };
+
+        document.addEventListener("astro:page-load", track);
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", track, { once: true });
+        } else {
+          track();
+        }
+      })();
+    </script>
   </body>
 </html>

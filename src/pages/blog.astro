@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="个人博客">
+  <main class="mx-auto min-h-screen w-[min(1120px,92%)] py-16">
+    <a href="/" class="text-sky-300 hover:underline">← 返回首页</a>
+
+    <section class="mt-8 border-b border-white/10 pb-8">
+      <p class="text-sm uppercase tracking-[0.28em] text-pink-300">PERSONAL BLOG</p>
+      <h1 class="mt-4 text-5xl font-black">个人博客</h1>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
+        这里收藏创意随笔、作品记录和灵感碎片。适合慢慢翻看，也适合偶然撞见一个有意思的想法。
+      </p>
+    </section>
+
+    <section class="mt-10 grid gap-5 md:grid-cols-3">
+      <article class="rounded-lg border border-pink-300/25 bg-pink-300/8 p-6">
+        <h2 class="text-2xl font-black">创意备忘</h2>
+        <p class="mt-4 leading-7 text-slate-300">记录突然冒出来的点子、标题、画面和还没来得及实现的脑洞。</p>
+      </article>
+
+      <article class="rounded-lg border border-sky-300/25 bg-sky-300/8 p-6">
+        <h2 class="text-2xl font-black">作品记录</h2>
+        <p class="mt-4 leading-7 text-slate-300">展示网页、小项目、页面设计，以及作品从草稿到完成的变化。</p>
+      </article>
+
+      <article class="rounded-lg border border-emerald-300/25 bg-emerald-300/8 p-6">
+        <h2 class="text-2xl font-black">兴趣杂谈</h2>
+        <p class="mt-4 leading-7 text-slate-300">分享音乐、游戏、奇怪小玩意和一些轻松但真诚的观察。</p>
+      </article>
+    </section>
+  </main>
+</Layout>

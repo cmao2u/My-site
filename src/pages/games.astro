@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="益智小游戏">
+  <main class="mx-auto min-h-screen w-[min(1120px,92%)] py-16">
+    <a href="/" class="text-sky-300 hover:underline">← 返回首页</a>
+
+    <section class="mt-8 border-b border-white/10 pb-8">
+      <p class="text-sm uppercase tracking-[0.28em] text-amber-300">GAME CORNER</p>
+      <h1 class="mt-4 text-5xl font-black">益智小游戏</h1>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
+        这里收集轻松、有趣的游戏入口。适合短暂放松，也适合在不同页面之间切换一点新鲜感。
+      </p>
+    </section>
+
+    <section class="mt-10">
+      <a
+        href="https://ys.mihoyo.com/cloud/#/"
+        target="_blank"
+        rel="noreferrer"
+        class="grid gap-0 overflow-hidden rounded-lg border border-amber-300/25 bg-white/5 transition hover:-translate-y-1 md:grid-cols-[320px_1fr]"
+      >
+        <div class="flex min-h-[280px] items-center justify-center bg-[linear-gradient(145deg,rgba(250,204,21,0.22),rgba(99,102,241,0.2),rgba(14,165,233,0.18))] p-6">
+          <img
+            src="/images/genshin-impact.jpg"
+            alt="云原神"
+            class="aspect-square w-full max-w-[220px] rounded-lg border border-white/20 object-cover shadow-2xl shadow-black/30"
+          />
+        </div>
+
+        <div class="flex min-h-[280px] flex-col justify-center bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-7">
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-200">Cloud Genshin</p>
+          <h2 class="mt-4 text-4xl font-black text-white">云·原神</h2>
+          <p class="mt-4 max-w-2xl text-lg leading-8 text-slate-200">
+            点击卡片即可前往云·原神官方页面，在浏览器中开启云端游戏体验。
+          </p>
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <div class="inline-flex w-fit rounded-lg bg-white/90 px-4 py-2 text-sm font-bold text-slate-900">
+              前往官网
+            </div>
+            <span class="rounded-lg border border-white/10 px-3 py-2 text-sm text-slate-300">官方链接</span>
+            <span class="rounded-lg border border-white/10 px-3 py-2 text-sm text-slate-300">外部跳转</span>
+          </div>
+        </div>
+      </a>
+    </section>
+  </main>
+</Layout>

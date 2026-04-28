@@ -3,6 +3,14 @@ import Layout from "../../../layouts/Layout.astro";
 import { dimensionPairs, type MbtiScores } from "../../../lib/mbti/calc";
 import { mbtiTypeList, mbtiTypes } from "../../../data/mbti/types";
 
+export function getStaticPaths() {
+  return mbtiTypeList.map((item) => ({
+    params: {
+      type: item.type.toLowerCase(),
+    },
+  }));
+}
+
 const { type } = Astro.params;
 
 const safeType = String(type ?? "").toLowerCase();
@@ -109,7 +117,7 @@ const hasScores = scoreEntries.some((side) => scores[side] > 0);
           </section>
 
           <section class="mt-5 rounded-lg border border-white/10 bg-white/5 p-6">
-            <h2 class="text-2xl font-black">给你的行动建议</h2>
+            <h2 class="text-2xl font-black">行动建议</h2>
             <div class="mt-4 grid gap-3 md:grid-cols-3">
               {info.suggestions.map((item) => (
                 <p class="rounded-lg border border-white/10 bg-slate-950/40 p-4 leading-7 text-slate-300">

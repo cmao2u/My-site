@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="娱乐小视频">
+  <main class="mx-auto min-h-screen w-[min(1120px,92%)] py-16">
+    <a href="/" class="text-sky-300 hover:underline">← 返回首页</a>
+
+    <section class="mt-8 border-b border-white/10 pb-8">
+      <p class="text-sm uppercase tracking-[0.28em] text-fuchsia-300">VIDEO LOUNGE</p>
+      <h1 class="mt-4 text-5xl font-black">娱乐小视频</h1>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
+        这里会收纳轻松、有趣、适合休息时观看的视频内容。短暂停留，也能换一个心情。
+      </p>
+    </section>
+
+    <section class="mt-10 grid gap-5 md:grid-cols-2">
+      <article class="rounded-lg border border-fuchsia-300/25 bg-fuchsia-300/8 p-6">
+        <h2 class="text-2xl font-black">视频收藏</h2>
+        <p class="mt-4 leading-7 text-slate-300">精选一些值得点开的频道、合集或单条视频，方便快速进入观看。</p>
+      </article>
+
+      <article class="rounded-lg border border-sky-300/25 bg-sky-300/8 p-6">
+        <h2 class="text-2xl font-black">轻松片段</h2>
+        <p class="mt-4 leading-7 text-slate-300">放一些节奏更快、氛围更轻的内容，适合随手打开、随手快乐一下。</p>
+      </article>
+    </section>
+  </main>
+</Layout>

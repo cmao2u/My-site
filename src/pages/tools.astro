@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="实用小工具">
+  <main class="mx-auto min-h-screen w-[min(1120px,92%)] py-16">
+    <a href="/" class="text-sky-300 hover:underline">← 返回首页</a>
+
+    <section class="mt-8 border-b border-white/10 pb-8">
+      <p class="text-sm uppercase tracking-[0.28em] text-emerald-300">UTILITY LAB</p>
+      <h1 class="mt-4 text-5xl font-black">实用小工具</h1>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
+        这里放置可以直接体验的网页小工具。无需安装，点开就能使用，适合随手测试、探索和消遣。
+      </p>
+    </section>
+
+    <section class="mt-10 grid gap-5 md:grid-cols-[1.35fr_0.95fr]">
+      <a
+        href="/mbti"
+        class="rounded-lg border border-emerald-300/25 bg-[linear-gradient(145deg,rgba(16,185,129,0.18),rgba(14,165,233,0.14))] p-7 transition hover:-translate-y-1"
+      >
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-200">Featured Tool</p>
+        <h2 class="mt-4 text-4xl font-black">MBTI 偏好测试</h2>
+        <p class="mt-5 max-w-2xl text-base leading-8 text-slate-100/90">
+          28 道题，按 E/I、S/N、T/F、J/P 四组偏好做结果分析，带完整 16 型说明和维度得分展示。
+        </p>
+        <div class="mt-8 inline-flex rounded-lg border border-white/15 bg-black/15 px-4 py-2 text-sm font-semibold text-white">
+          进入测试
+        </div>
+      </a>
+
+      <div class="grid gap-5">
+        <a
+          href="https://www.taptap.cn/poster-activity/NGZ0mSk5fr6K"
+          target="_blank"
+          rel="noreferrer"
+          class="rounded-lg border border-sky-300/25 bg-sky-300/8 p-6 transition hover:-translate-y-1 hover:bg-sky-300/12"
+        >
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-sky-200">External Tool</p>
+          <h3 class="mt-3 text-2xl font-black">三角洲今日密码</h3>
+          <p class="mt-4 leading-7 text-slate-300">来自taptap</p>
+        </a>
+
+        <article class="rounded-lg border border-white/10 bg-white/5 p-6">
+          <h3 class="text-2xl font-black">轻量工具</h3>
+          <p class="mt-4 leading-7 text-slate-300">未来会加入更多适合日常使用的小功能，例如选择器、计时器和文本处理工具。</p>
+        </article>
+
+        <article class="rounded-lg border border-white/10 bg-white/5 p-6">
+          <h3 class="text-2xl font-black">互动实验</h3>
+          <p class="mt-4 leading-7 text-slate-300">这里也会收纳一些偏实验性质的互动页面，让工具区不只是实用，也有一点好玩。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>

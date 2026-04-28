@@ -1,49 +1,110 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import FloatingMusicPlayer from "../components/FloatingMusicPlayer";
 ---
 
-<Layout title="我的主题站">
-  <main class="mx-auto min-h-screen w-[min(1100px,92%)] py-16">
-    <section class="mb-10">
-      <span class="inline-block rounded-lg border border-white/15 bg-white/5 px-4 py-2 text-sm text-emerald-300">
-        EdgeOne Pages · Astro · React · Tailwind 4
-      </span>
+<Layout title="Cmao2的秘密基地">
+  <main class="mx-auto min-h-screen w-[min(1180px,92%)] py-14 md:py-18">
+    <section class="grid gap-8 border-b border-white/10 pb-12 lg:grid-cols-[1.15fr_0.85fr]">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.28em] text-pink-300">
+          Secret Playground
+        </p>
+        <h1 class="mt-5 text-5xl font-black leading-tight md:text-7xl">
+        Cmao2的秘密基地
+        </h1>
 
-      <h1 class="mt-6 text-5xl font-black leading-tight md:text-7xl">
-        这不是个人简介，<br />
-        这是我的内容基地。
-      </h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200">
+          欢迎来到我的秘密基地，我会在这里分享我的创意，爱好，作品或者一系列我喜欢的稀奇古怪的小玩意。本人负责这个网站的设计，搭建和写作。
+        </p>
 
-      <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-        这个网站以后会放学习笔记、资源整理、专题页面和交互工具。
-        第一版先做内容页 + MBTI 测试，后面再加搜索、标签、统计和更多功能。
-      </p>
+        <div class="mt-8 flex flex-wrap gap-3 text-sm text-slate-200">
+          <span class="rounded-lg border border-pink-300/30 bg-pink-300/10 px-4 py-2">创意</span>
+          <span class="rounded-lg border border-sky-300/30 bg-sky-300/10 px-4 py-2">爱好</span>
+          <span class="rounded-lg border border-emerald-300/30 bg-emerald-300/10 px-4 py-2">作品</span>
+          <span class="rounded-lg border border-amber-300/30 bg-amber-300/10 px-4 py-2">稀奇古怪的小玩意</span>
+        </div>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+        <div class="rounded-lg border border-sky-300/25 bg-white/6 p-5 backdrop-blur">
+          <div class="flex items-center justify-between gap-4">
+            <p class="text-sm uppercase tracking-[0.24em] text-sky-200">Quick Gate</p>
+            <span class="rounded-lg border border-sky-300/30 bg-sky-300/10 px-3 py-1 text-xs text-sky-100">4 区域</span>
+          </div>
+          <div class="mt-4 grid grid-cols-2 gap-2 text-sm text-slate-100">
+            <a href="/blog" class="rounded-lg border border-white/10 bg-black/15 px-3 py-2 transition hover:bg-white/10">博客</a>
+            <a href="/tools" class="rounded-lg border border-white/10 bg-black/15 px-3 py-2 transition hover:bg-white/10">工具</a>
+            <a href="/games" class="rounded-lg border border-white/10 bg-black/15 px-3 py-2 transition hover:bg-white/10">游戏</a>
+            <a href="/videos" class="rounded-lg border border-white/10 bg-black/15 px-3 py-2 transition hover:bg-white/10">视频</a>
+          </div>
+          <p class="mt-4 text-base leading-7 text-slate-300">
+            四个区域各自收藏不同内容，适合按心情直接进入。
+          </p>
+        </div>
+        <div class="rounded-lg border border-white/10 bg-[linear-gradient(145deg,rgba(244,114,182,0.16),rgba(14,165,233,0.16),rgba(250,204,21,0.12))] p-5">
+          <p class="text-sm uppercase tracking-[0.24em] text-amber-100">Now Playing</p>
+          <p class="mt-3 text-2xl font-black">全站音乐台已经上线，边逛边听。</p>
+        </div>
+      </div>
     </section>
 
-    <section class="grid gap-5 md:grid-cols-3">
+    <section class="mt-10 grid gap-5 md:grid-cols-2">
       <a
-        href="/resources"
-        class="rounded-lg border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:bg-white/10"
+        href="/blog"
+        class="group rounded-lg border border-pink-300/20 bg-[linear-gradient(145deg,rgba(244,114,182,0.12),rgba(129,140,248,0.09))] p-7 transition hover:-translate-y-1"
       >
-        <h2 class="text-2xl font-bold">资源页</h2>
-        <p class="mt-3 text-slate-300">放网站、软件、工具、教程导航。</p>
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-pink-200">Panel 01</p>
+        <h2 class="mt-4 text-3xl font-black">个人博客</h2>
+        <p class="mt-4 max-w-xl leading-7 text-slate-200">
+          阅读站长的随笔、灵感记录和作品幕后，看看一个想法从冒出来到成形的过程。
+        </p>
+        <div class="mt-8 inline-flex rounded-lg border border-white/15 bg-black/15 px-4 py-2 text-sm font-semibold">
+          进入博客
+        </div>
       </a>
 
       <a
-        href="/mbti"
-        class="rounded-lg border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:bg-white/10"
+        href="/tools"
+        class="group rounded-lg border border-emerald-300/20 bg-[linear-gradient(145deg,rgba(16,185,129,0.14),rgba(14,165,233,0.12))] p-7 transition hover:-translate-y-1"
       >
-        <h2 class="text-2xl font-bold">MBTI 测试</h2>
-        <p class="mt-3 text-slate-300">第一批交互功能，从这里开始。</p>
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-emerald-200">Panel 02</p>
+        <h2 class="mt-4 text-3xl font-black">实用小工具</h2>
+        <p class="mt-4 max-w-xl leading-7 text-slate-200">
+          体验一些可以直接上手的小功能，从 MBTI 偏好测试开始，探索更轻松的互动页面。
+        </p>
+        <div class="mt-8 inline-flex rounded-lg border border-white/15 bg-black/15 px-4 py-2 text-sm font-semibold">
+          打开工具区
+        </div>
       </a>
 
-      <div class="rounded-lg border border-white/10 bg-white/5 p-6">
-        <h2 class="text-2xl font-bold">后续扩展</h2>
-        <p class="mt-3 text-slate-300">以后再加笔记列表、专题页、统计功能。</p>
-      </div>
+      <a
+        href="/games"
+        class="group rounded-lg border border-amber-300/20 bg-[linear-gradient(145deg,rgba(250,204,21,0.16),rgba(56,189,248,0.12))] p-7 transition hover:-translate-y-1"
+      >
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-amber-100">Panel 03</p>
+        <h2 class="mt-4 text-3xl font-black">益智小游戏</h2>
+        <p class="mt-4 max-w-xl leading-7 text-slate-200">
+          进入轻量游戏角落，在碎片时间里切换一下脑子，顺手打开一些有趣的游戏入口。
+        </p>
+        <div class="mt-8 inline-flex rounded-lg border border-white/15 bg-black/15 px-4 py-2 text-sm font-semibold">
+          去看看游戏区
+        </div>
+      </a>
+
+      <a
+        href="/videos"
+        class="group rounded-lg border border-fuchsia-300/20 bg-[linear-gradient(145deg,rgba(217,70,239,0.14),rgba(251,146,60,0.12))] p-7 transition hover:-translate-y-1"
+      >
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-fuchsia-200">Panel 04</p>
+        <h2 class="mt-4 text-3xl font-black">娱乐小视频</h2>
+        <p class="mt-4 max-w-xl leading-7 text-slate-200">
+          收集轻松、有趣、适合随手看的视频内容，让浏览过程多一点休息和快乐。
+        </p>
+        <div class="mt-8 inline-flex rounded-lg border border-white/15 bg-black/15 px-4 py-2 text-sm font-semibold">
+          进入视频区
+        </div>
+      </a>
     </section>
   </main>
 
-  <FloatingMusicPlayer client:load />
 </Layout>
